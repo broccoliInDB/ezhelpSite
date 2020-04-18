@@ -1,0 +1,18 @@
+[submodule "syna"]
+	path = syna
+	url = https://github.com/brocolliInDB/syna.git
+[submodule "themes/syna"]
+	path = themes/syna
+	url = https://github.com/brocolliInDB/syna.git
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/budparr/gohugo-theme-ananke.git
+[submodule "themes/themes/hugo-theme-learn"]
+	path = themes/themes/hugo-theme-learn
+	url = https://github.com/brocolliInDB/hugo-theme-learn.git
+[submodule "themes/hugo-theme-learn"]
+	path = themes/hugo-theme-learn
+	url = https://github.com/brocolliInDB/hugo-theme-learn.git
+[submodule "themes/hugo-debugprint"]
+	path = themes/hugo-debugprint
+	url = https://github.com/kaushalmodi/hugo-debugprint.git

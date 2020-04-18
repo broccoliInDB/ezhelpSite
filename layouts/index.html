@@ -1,0 +1,149 @@
+
+
+
+{{ partial "header.html" . }}
+<span id="sidebar-toggle-span">
+<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
+</span>
+
+{{if .Site.Home.Content }} 
+{{.Site.Home.Content}}	
+{{else}}   
+	<div class="tags">
+		{{ range .Data.Pages }}
+			 {{ .Scratch.Set "pages" .Page.Pages }}
+			 {{ $pages := (.Scratch.Get "pages") }}
+			 {{ range $pages }}
+			   {{ partial "tags2.html" . }}
+			 {{ end }}
+		{{ end }}
+	</div>
+{{ end }}
+
+<h1>도움말 사이트</h1>
+<p>
+  <ul>
+    <li>CHIS Frontend 개발에 도움이 될 수 있는 정보게시를 목적으로 합니다.</li>
+    <li>현재 구조는 아래 트리구조와 같고 변경이 생길 시 관련 담당자 분께서는 관련 컨텐츠와 함께 구조 수정을 부탁드립니다.</li>
+    <li>사용방법은 트리구조 아래에 정리되어 있습니다. 참고 바랍니다.</li>
+  </ul>
+</p>
+
+<pre>
+  <code class="hljs r">
+CONTENTS
+├── Get Start Overview
+│   ├── Environment                                 //환경설치
+│   ├── Quick Start                                 //환경설치 후 빠른 개발환경 구성
+│   └── Design Sample                               //design-sample 실행
+├── CHIS Structure
+│   ├── CHIS Overview                               //CHIS app 구성트리와 각 노드별 간략한 설명
+│   ├── Host                                        //Host Structure와 각 구조별 설명
+│   ├── Common                                      //Common에서 제공하는 addon과 그 하단 제공 로직들의 대한 큰 카테고리 및 설명 제공
+│   ├── Framework                                   //Framework에서 제공하는 addon과 그 하단 제공 로직들의 대한 큰 카테고리 및 설명 제공
+│   ├── CHIS Component Core                         //Component Core가 확장한 로직과 관련 설명
+│   ├── CHIS Component Base                         //Component Base가 확장한 로직과 관련 설명
+│   ├── CHIS Services                               //CHIS 에서 제공하는 모든 service 의 API [ App 내부적으로 사용하는 로직의 경우 [TA] 붙음.]
+│   ├── CHIS Mixins                                 //CHIS 에서 제공하는 모든 Mixin 의 API [ App 내부적으로 사용하는 로직의 경우 [TA] 붙음.]
+│   ├── CHIS Helpers                                //CHIS 에서 제공하는 모든 Helpers의 API [ App 내부적으로 사용하는 로직의 경우 [TA] 붙음.]
+│   ├── CHIS Utils                                  //CHIS 에서 제공하는 모든 Utils
+│   └── TO BE REMOVED                               //삭제될 로직들
+├── Development
+│   ├── Naming                                      //CHIS Naming 관련 문서입니다.
+│   ├── CHIS Rules                                  //CHIS에서 커스터마이징한 esline rule 관련 문서입니다.
+│   ├── DDAU Principle                              //DDAU의 개념과 방법 이유의 대한 설명
+│   ├── Component                                   //CHIS app에서 컴포넌트 개발시 참고사항에 대한 문서 입니다.
+│   ├── Blueprint                                   //CHIS app의 Custom 블루프린트의 사용법에 대한 문서입니다.
+│   ├── CHIS Component Life Cycle                   //CHIS Component Life Cycle의 대한 문서입니다.
+│   ├── State Management                            //Component의 상태유지에 관련된 문서입니다.
+│   ├── I18n                                        //국제화 서비스 활용 문서입니다.
+│   ├── Trouble Shooting                            //Trouble Shooting 
+│   └── Script                                      //Host에서 제공하는 스크립트에 대한 문서입니다.
+├── Release
+│   ├── Release History                             //Release History
+│   └── Frontend Version                            //브라우저에서 프론트엔드 addon 버전 확인 하는 방법
+├── Supporting Pages
+│   ├── MQ Monitoring                               //MQ Monitoring의 대한 사용법 및 설명
+│   ├── Job Scheduler                               //Job Scheduler의 대한 사용법 및 설명
+│   ├── 주소 검색 화면                                 //주소 검색 화면의 대한 사용법 및 설명
+│   ├── 다국어 관리 화면                                //다국어 관리 화면의 대한 사용법 및 설명
+│   ├── 통합 설치 화면                                 //통합 설치 화면의 대한 설명
+│   ├── 개인화 설정 화면                                //개인화 설정 화면의 대한 설명
+│   └── 개인별 프린터 설정                              //개인별 프린터 설정 화면에 대한 설명
+├── Technical References
+│   ├── Git                                         //Git의 기본적인 명령어와 사용법의 관한 문서
+│   └── GitFlow WorkFlow                            //Git을 이용한 WorkFlow 관련 문서
+└── Documents
+    ├── Install Hugo                                //Hugo Install 방법
+    ├── Ways to Document v1.0                       //도움말 사이트 작성 방법
+    ├── Docs Meta Info                              //CHIS HIS Project에서 공지된 문서들의 대한 위치 링크
+    ├── Markdown                                    //Markdown 사용법
+    └── Deploy                                      //도움말 사이트 배포 방법
+                  
+  </code>
+</pre>
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> Get Started Overview</h3>
+CHIS Frontend 개발을 위한 환경제공을 목적으로 한다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> CHIS Structure</h3>
+CHIS 구조의 대한 설명과 내부에서 제공하는 서비스 및 mixin, helper 등에 대한 설명을 목적으로 한다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> Development</h3>
+CHIS 개발에 필요한 전반적인 정보제공을 목적으로 한다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> Release</h3>
+CHIS Framework의 Release history를 목적으로 한다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> Technical References</h3>
+CHIS 개발 및 그 이외에 필요한 기술 정보 제공을 목적으로 한다. 
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> Docs Meta Info</h3>
+PPT, Word등 으로 제공된 문서들의 위치, 최종작성날짜 등의 meta정보를 기록하는 목적으로 문서들의 현 위치정보파악을 좀 더 용이하게 하기 위한 목적이다.<br>
+해당 카테고리는 관련문서의 <span class="colored2"><strong>작성자 및 수정자가 문서 위치정보를 해당 컨텐츠에 기입해줘야 앞으로라도 관련 문서들을 좀 더 용이하게 유지 관리할 수 있음을 미리 말씀드립니다.</strong></span> 
+
+<h2>사용방법</h2>
+<hr>
+<img style="max-width:1300px" src="/images/manualhelpsite.png">
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 로고</h3>
+클릭시 초기화면으로 이동한다. 초기화면엔 전체화면의 태그리스트와 사이트 사용방법에 대한 설명이 기록되어있다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 컨텐츠 내부 카테고리 구분</h3>
+<img style="max-width:1300px" src="/images/manualhelpsite2.png">
+위 사진은 <span class="colored2">Naming</span>이라는 컨텐츠 예시로써 <i class="fas fa-list-alt"></i> <span class="colored2">해당 아이콘</span>의 마우스 오버를 하게 되면 나타나는 이미지. 
+클릭시 원하는 컨텐츠 위치로 바로 이동할 수 있음.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 태그</h3>
+태그 클릭시 해당 태그의 컨텐츠 리스트로 이동한다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 검색기능</h3>
+검색어를 입력하여 관련 컨텐츠로 이동할 수 있다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 큰 카테고리</h3>
+컨텐츠의 큰 카테고리의 묶음으로 관련 컨텐츠리스트를 하부자식으로 가지고 있다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 상세 카테고리</h3>
+컨텐츠가 기록되어 있는 부분으로 내부적으로 마크다운언어로 상세내용을 기록하고 있다.
+
+<h3 style="font-style: italic"><i class="fas fa-info-circle"></i> 컨텐츠 수정</h3>
+관련 작업자는 소스를 다운받아 로컬호스트로 실행해서 수정해가며 화면을 확인해도 되고
+위에 링크로 <span class="colored2">직접 컨텐츠 레포지터리로 접근</span>하여 원격지 raw소스를 수정할 수도 있다.
+
+<h2>로컬호스트 방법</h2>
+<hr>
+해당 사이트는 <a href="https://gohugo.io/">hugo</a>라는 static site generator를 통해 구현한 사이트 입니다.
+<ul>
+  <li><a href="/documents/install-hugo/">설치방법</a></li>
+  <li><a href="https://gohugo.io/documentation/">Docs</a></li>
+</ul>
+<a href="https://gohugo.io/getting-started/installing/">설치방법</a> 링크를 통해 설치가 완료되었다면 아래 순서로 진행하시면 로컬호스트를 실행하실 수 있습니다.
+
+<ol>
+  <li><a href="http://tfs.c-his.com:8080/tfs/DefaultCollection/Source-FrontEnd/_git/frontendhelpsite">도움말 원격지 레포지터리 clone</a></li>
+  <li>git submodule init</li>
+  <li>git submodule update</li>
+  <li>hugo server -D</li>
+  <li><a href="/documents/ways-to-document-v1.0/">컨텐츠 작성요령 확인하기</a></li>
+</ol>
+
+{{ partial "footer.html" . }}
